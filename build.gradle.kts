@@ -17,3 +17,11 @@ dependencies {
     val kotlinLoggingVersion = "2.1.21"
     implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
