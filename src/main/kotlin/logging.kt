@@ -28,9 +28,9 @@ import org.koin.mp.KoinPlatformTools
  * ```
  * - for KoinApplication or Koin instances
  * ```
- * val logger by koinApp.injectKLogger {}
+ * val logger by koinApp.injectKLogger {} // Log tag is obtained from declaration context
  * val logger by koinApp.injectKLogger("LOG_TAG")
- * val logger by koinApp.injectKLogger(clazz)
+ * val logger by koinApp.injectKLogger(clazz) // Log tag is obtained from supplied class
  * ```
  */
 val koinKLoggingModule = module {
