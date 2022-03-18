@@ -4,18 +4,18 @@ plugins {
 }
 
 group = "pw.avi"
-version = "1.1.0"
+version = "1.1.1"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
+    compileOnly(kotlin("stdlib"))
     val koinVersion = "3.2.0-beta-1"
-    implementation("io.insert-koin:koin-core:$koinVersion")
+    compileOnly("io.insert-koin:koin-core:$koinVersion")
     val kotlinLoggingVersion = "2.1.21"
-    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
+    compileOnly("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
 }
 
 publishing {
