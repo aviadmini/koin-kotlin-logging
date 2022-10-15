@@ -1,10 +1,10 @@
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.20"
     `maven-publish`
 }
 
 group = "pw.avi"
-version = "1.1.2"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -12,10 +12,10 @@ repositories {
 
 dependencies {
     compileOnly(kotlin("stdlib"))
-    val koinVersion = "3.2.0"
+    val koinVersion = "3.2.2"
     compileOnly("io.insert-koin:koin-core:$koinVersion")
-    val kotlinLoggingVersion = "2.1.23"
-    compileOnly("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
+    val kotlinLoggingVersion = "3.0.0"
+    compileOnly("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
 }
 
 publishing {
