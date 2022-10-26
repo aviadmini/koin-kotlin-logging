@@ -28,7 +28,7 @@ startKoin {
 
  ```kotlin
 class MyComponent : KoinComponent {
-    private val logger by injectKLogger()
+    private val logger by injectKLogger(/* optional logger name string here */)
     // ...
 }
  ```
@@ -37,7 +37,7 @@ class MyComponent : KoinComponent {
 
  ```kotlin
 val logger by koinApp.injectKLogger {} // Log tag is obtained from declaration context
-val logger by koinApp.injectKLogger("LOG_TAG")
+val logger by koinApp.injectKLogger("LOGGER_NAME")
 val logger by koinApp.injectKLogger(clazz) // Log tag is obtained from supplied class
  ```
 
