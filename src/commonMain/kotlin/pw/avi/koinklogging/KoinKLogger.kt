@@ -1,3 +1,5 @@
+package pw.avi.koinklogging
+
 import mu.KLogger
 import mu.KotlinLogging
 import org.koin.core.KoinApplication
@@ -11,10 +13,10 @@ private object KoinKLogger : Logger() {
     private val logger = KotlinLogging.logger("koin")
 
     override fun log(level: Level, msg: MESSAGE) = when (level) {
-        Level.DEBUG -> logger.debug(msg)
-        Level.INFO -> logger.info(msg)
-        Level.ERROR -> logger.error(msg)
-        Level.NONE -> logger.debug(msg)
+        Level.DEBUG -> logger.debug { msg }
+        Level.INFO -> logger.info { msg }
+        Level.ERROR -> logger.error { msg }
+        Level.NONE -> logger.debug { msg }
     }
 
 }

@@ -1,27 +1,38 @@
 plugins {
-    kotlin("jvm") version "1.7.20"
+    kotlin("multiplatform") version "1.7.20"
     `maven-publish`
 }
 
 group = "pw.avi"
-version = "1.2.0"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    compileOnly(kotlin("stdlib"))
-    val koinVersion = "3.2.2"
-    compileOnly("io.insert-koin:koin-core:$koinVersion")
-    val kotlinLoggingVersion = "3.0.0"
-    compileOnly("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+kotlin {
+    jvm()
+    js(IR)
+    @Suppress("UNUSED_VARIABLE")
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                val koinVersion = "3.2.2"
+                compileOnly("io.insert-koin:koin-core:$koinVersion")
+                val kotlinLoggingVersion = "3.0.2"
+                compileOnly("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+            }
+        }
+    }
 }
 
+val javadocJar = tasks.register("javadocJar", Jar::class.java) {
+    archiveClassifier.set("javadoc")
+}
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
+        withType<MavenPublication> {
+            artifact(javadocJar)
         }
     }
 }
