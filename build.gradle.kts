@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform") version "1.7.20"
-    `maven-publish`
+    id("convention.publication")
 }
 
 group = "pw.avi"
@@ -17,22 +17,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                val koinVersion = "3.3.2"
-                compileOnly("io.insert-koin:koin-core:$koinVersion")
-                val kotlinLoggingVersion = "3.0.4"
-                compileOnly("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+                compileOnly("io.insert-koin:koin-core:3.3.2")
+                compileOnly("io.github.microutils:kotlin-logging:3.0.4")
             }
-        }
-    }
-}
-
-val javadocJar = tasks.register("javadocJar", Jar::class.java) {
-    archiveClassifier.set("javadoc")
-}
-publishing {
-    publications {
-        withType<MavenPublication> {
-            artifact(javadocJar)
         }
     }
 }
