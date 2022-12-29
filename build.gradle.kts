@@ -17,9 +17,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                val koinVersion = "3.2.2"
+                val koinVersion = "3.3.2"
                 compileOnly("io.insert-koin:koin-core:$koinVersion")
-                val kotlinLoggingVersion = "3.0.2"
+                val kotlinLoggingVersion = "3.0.4"
                 compileOnly("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
             }
         }

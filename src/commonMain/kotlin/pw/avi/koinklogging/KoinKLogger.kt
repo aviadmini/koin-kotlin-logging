@@ -12,9 +12,10 @@ private object KoinKLogger : Logger() {
 
     private val logger = KotlinLogging.logger("koin")
 
-    override fun log(level: Level, msg: MESSAGE) = when (level) {
+    override fun display(level: Level, msg: MESSAGE) = when (level) {
         Level.DEBUG -> logger.debug { msg }
         Level.INFO -> logger.info { msg }
+        Level.WARNING -> logger.warn { msg }
         Level.ERROR -> logger.error { msg }
         Level.NONE -> logger.debug { msg }
     }
